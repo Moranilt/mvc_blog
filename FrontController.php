@@ -19,6 +19,8 @@ class Router{
   public function __construct(){
     $this->table[''] = new Route('Model', 'View', 'Controller', '../tpl/all.php');
     $this->table['users'] = new Route('Model', 'View', 'Controller', '../tpl/allusers.php');
+    $this->table['user'] = new Route('UserModel', 'UserView', 'Controller', '../tpl/user.php');
+    $this->table['newuser'] = new Route('UserModel', 'UserView', 'Controller', '../tpl/user.php');
   }
 
   public function getRoute($route){
@@ -38,13 +40,13 @@ class FrontController{
   private $tpl;
   private $db;
 
-  public function __construct(Router $router, $routeName, $action = null, $argument = null){
+  public function __construct($pdo, Router $router, $routeName, $action = null, $argument = null){
     $route = $router->getRoute($routeName);
     $modelName = $route->model;
     $viewName = $route->view;
     $controllerName = $route->controller;
     $tpl = $route->tpl;
-    $db = new DB;
+    $db = $pdo;
 
     $model = new $modelName($db);
     $this->controller = new $controllerName($model);
