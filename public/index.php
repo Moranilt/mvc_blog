@@ -50,6 +50,6 @@ $route = $_GET['route'] ?? '';
 $action = $_GET['action'] ?? null;
 $arg = $_GET['argument'] ?? null;
 
-$frontController = new FrontController(new Router, $route, $action, $arg);
-echo $frontController->output();
+$frontController = new FrontController($pdo, new Router, $route, $action, $arg);
+return $frontController->output();
  ?>
