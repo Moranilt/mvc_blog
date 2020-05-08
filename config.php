@@ -2,5 +2,5 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_SCHEMA', 'new_blog');
+define('DB_SCHEMA', 'mvc_blog');
 ?>
