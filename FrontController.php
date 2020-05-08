@@ -19,8 +19,8 @@ class Router{
   public function __construct(){
     $this->table[''] = new Route('Model', 'View', 'Controller', '../tpl/all.php');
     $this->table['users'] = new Route('Model', 'View', 'Controller', '../tpl/allusers.php');
-    $this->table['user'] = new Route('UserModel', 'UserView', 'Controller', '../tpl/user.php');
-    $this->table['newuser'] = new Route('UserModel', 'UserView', 'Controller', '../tpl/user.php');
+    $this->table['user'] = new Route('UserModel', 'UserView', 'UserController', '../tpl/user.php');
+    $this->table['newuser'] = new Route('UserModel', 'UserView', 'UserController', '../tpl/user.php');
   }
 
   public function getRoute($route){
