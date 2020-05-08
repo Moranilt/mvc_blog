@@ -10,14 +10,17 @@ require '../config.php';
 
 $pdo = new \PDO('mysql:host='.DB_HOST.';dbname='.DB_SCHEMA, DB_USER, DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-$result = $pdo->prepare("SELECT * FROM posts JOIN users");
+/*
+$result = $pdo->prepare("SELECT * FROM posts JOIN users WHERE author_id=users.id ORDER BY posts.reg_date DESC");// ON (posts.author_id = users.id) WHERE posts.author_id='2'
 $result->execute();
 $result->setFetchMode(PDO::FETCH_ASSOC);
 $posts = $result->fetchAll();
-print_r($posts);
-echo count($posts)."<br />";
 
-echo $posts[0]['body'];
+foreach($posts as $post){
+  echo $post['firstname']." - ".$post['title']." - ".$post['body']."<br />";
+}
+*/
+
 /*
 $db = new DB;
 $route = $_GET['route'] ?? '';
