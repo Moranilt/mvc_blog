@@ -10,6 +10,14 @@ require '../config.php';
 
 $pdo = new \PDO('mysql:host='.DB_HOST.';dbname='.DB_SCHEMA, DB_USER, DB_PASS, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
+$result = $pdo->prepare("SELECT * FROM posts JOIN users");
+$result->execute();
+$result->setFetchMode(PDO::FETCH_ASSOC);
+$posts = $result->fetchAll();
+print_r($posts);
+echo count($posts)."<br />";
+
+echo $posts[0]['body'];
 /*
 $db = new DB;
 $route = $_GET['route'] ?? '';
