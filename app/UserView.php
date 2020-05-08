@@ -1,7 +1,7 @@
 <?php
 class UserView{
   private $model;
-  private $temlate;
+  private $template;
 
   public function __construct($model, $template){
     $this->model = $model;
