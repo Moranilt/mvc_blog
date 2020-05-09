@@ -38,8 +38,13 @@
     <input type="submit" value="SEND" />
   </form>
   <?php
+  /*
     foreach($users as $user){
       echo $user["id"]." - ".$user["firstname"]. " - ". $user["login"]."<br />";
+    }*/
+
+    foreach($posts as $post){
+      echo "Author: ".$post['login']." - Date: ".date("d-F-Y G:i", strtotime($post['created_at']))."<br /><h2>".$post['title']."</h2><p style='font-size:20px;'>".$post['body']."</p><br />";
     }
 
    ?>
