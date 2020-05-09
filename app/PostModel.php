@@ -8,7 +8,7 @@ class PostModel{
   }
 
   public function allPosts(){
-    $result = $this->db->prepare("SELECT * FROM posts JOIN users WHERE author_id=users.id ORDER BY posts.reg_date DESC");
+    $result = $this->db->prepare("SELECT * FROM posts JOIN users WHERE author_id=users.id ORDER BY posts.created_at DESC");
     $result->execute();
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $this->posts = $result->fetchAll();
@@ -16,7 +16,7 @@ class PostModel{
   }
 
   public function show($id){
-    $result = $this->db->prepare("SELECT * FROM posts JOIN users ON (posts.author_id = users.id) WHERE posts.author_id='$id'");
+    $result = $this->db->prepare("SELECT * FROM posts JOIN users ON (posts.author_id = users.id) WHERE posts.id='$id'");
     $result->execute();
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $this->posts = $result->fetchAll();
