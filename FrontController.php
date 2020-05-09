@@ -20,6 +20,8 @@ class Router{
     $this->table[''] = new Route('Model', 'View', 'Controller', '../tpl/all.php');
     $this->table['users'] = new Route('Model', 'View', 'Controller', '../tpl/allusers.php');
     $this->table['user'] = new Route('UserModel', 'UserView', 'UserController', '../tpl/user.php');
+    $this->table['login'] = new Route('UserModel', 'UserView', 'Auth', '../tpl/user.php');
+    $this->table['logout'] = new Route('UserModel', 'UserView', 'Auth', '../tpl/all.php');
     $this->table['newuser'] = new Route('UserModel', 'UserView', 'UserController', '../tpl/user.php');
     $this->table['posts'] = new Route('PostModel', 'PostView', 'PostController', '../tpl/posts.php');
     $this->table['post'] = new Route('PostModel', 'PostView', 'PostController', '../tpl/posts.php');
