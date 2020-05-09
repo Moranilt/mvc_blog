@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Определяем место где лежат файлы классов, которые будем загружать
 define('APP',  '..\\app');
 spl_autoload_register(function ($class) {
