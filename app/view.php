@@ -9,8 +9,9 @@ class View{
   }
 
   public function output(){
-    $data = $this->model->getUser();
-    $users = $this->model->getAllUsers();
+    //$data = $this->model->getUser();
+    //$users = $this->model->getAllUsers();
+    $posts = $this->model->allPosts();
     require($this->template);
   }
 }
