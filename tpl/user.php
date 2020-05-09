@@ -7,6 +7,7 @@
  </head>
  <body>
   <?php
+  echo 'User lofin - '.$_SESSION['user_login'].'. User id - '.$_SESSION['user_id'];
   echo $this->model->user["id"]." - ".$this->model->user["login"]." - ".$this->model->user["email"];
    ?>
 
