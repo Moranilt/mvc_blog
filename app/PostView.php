@@ -1,5 +1,5 @@
 <?php
-class UserView{
+class PostView{
   private $model;
   private $template;
 
@@ -10,7 +10,8 @@ class UserView{
 
   public function output(){
     require($this->template);
-    return $this->model->user;
+    return $this->model->posts;
   }
 }
+
  ?>
