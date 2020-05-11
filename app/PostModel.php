@@ -2,6 +2,7 @@
 class PostModel{
   public $db;
   public $posts;
+  public $data = [];
 
   public function __construct($db){
     $this->db = $db;
@@ -20,6 +21,13 @@ class PostModel{
     $result->execute();
     $result->setFetchMode(PDO::FETCH_ASSOC);
     $this->posts = $result->fetchAll();
+    return $this->posts;
+  }
+
+  public function store(array $data){
+    $stmt = $this->db->prepare("INSERT INTO posts (author_id, title, body) VALUES(:author_id, :title, :body)");
+    $stmt->execute([':author_id' => $data['user_id'], ':title' => $data['title'], ':body' => $data['body']]);
+    $this->posts = self::show($this->db->lastInsertId());
     return $this->posts;
   }
 }
