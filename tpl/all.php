@@ -48,6 +48,25 @@
     }
 
    ?>
+<input type="text" id="fname" name="fname" onkeyup="showHint(this.value)" />
+<span id="txtHint"></span>
 
+<script>
+function showHint(str){
+  if(str.length == 0){
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }else{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "index.php?route=user&action=getUser&argument=" + str, true);
+    xmlhttp.send();
+  }
+}
+</script>
  </body>
 </html>
