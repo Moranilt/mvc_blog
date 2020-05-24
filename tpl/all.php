@@ -45,9 +45,15 @@
 
     foreach($posts as $post){
       echo "Author: ".$post['login']." - Date: ".date("d-F-Y G:i", strtotime($post['created_at']))."<br /><h2>".$post['title']."</h2><p style='font-size:20px;'>".$post['body']."</p><br />";
-    }
+    }?>
+    <ul>
+    <?php
+    for($i=1; $i <= $pages; $i++){?>
+      <a href="?page=<?php echo $i; ?>"><li><?php echo $i; ?></li></a>
+    <?php
+  }
+   ?></ul>
 
-   ?>
 <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)" />
 <span id="txtHint"></span>
 
