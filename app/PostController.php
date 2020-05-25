@@ -34,8 +34,13 @@ class PostController{
         'title' => $_POST['title'],
         'body' => $_POST['body']
       ];
-      
+
     return $this->model->store($data);
+  }
+
+  public function deletePost($id){
+    $this->model->delete($id);
+    header("Location: index.php");
   }
 }
  ?>
