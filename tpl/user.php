@@ -12,7 +12,7 @@
   }
 
 
-  echo $this->model->user["id"]." - ".$this->model->user["login"]." - ".$this->model->user["email"];
+  echo $this->model->user["user_id"]." - ".$this->model->user["login"]." - ".$this->model->user["email"];
    ?>
 
 
