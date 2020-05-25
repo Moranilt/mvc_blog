@@ -21,11 +21,13 @@
 
      ?>
      <a href="<?php echo setLink('logout', 'logout'); ?>">Logout</a>
+     <a href="<?php echo setLink('postcreate'); ?>">Create post</a>
      <?php
    }
     ?>
   <!--<a href="index.php?page=tpl&criteria=lily&method=searchName">Link</a>-->
   <a href="<?php echo setLink('user', 'getUser', 'morani'); ?>">Link</a>
+
 
 
 
@@ -44,7 +46,12 @@
     }*/
 
     foreach($posts as $post){
-      echo "Author: ".$post['login']." - Date: ".date("d-F-Y G:i", strtotime($post['created_at']))."<br /><h2>".$post['title']."</h2><p style='font-size:20px;'>".$post['body']."</p><br />";
+      echo "<hr />Author: ".$post['login']." - Date: ".date("d-F-Y G:i", strtotime($post['created_at']))."<br /><a href=".setLink('post', 'getPost', $post['id'])."><h2>".$post['title']."</h2></a><p style='font-size:20px;'>".$post['body']."</p><br />";
+      if(isset($_SESSION['user_login'])){
+        if($post['user_id'] == $_SESSION['user_id']){?>
+      <a href="<?php echo setLink('postdelete', 'deletePost', $post['id']); ?>">Delete post</a>
+  <?php }
+      }
     }?>
     <ul>
     <?php
