@@ -30,7 +30,7 @@ class PostController{
     $user = $user->find($user_login);
 
       $data = [
-        'user_id' => $user['id'],
+        'user_id' => $user['user_id'],
         'title' => $_POST['title'],
         'body' => $_POST['body']
       ];
