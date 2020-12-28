@@ -12,6 +12,8 @@ class View{
     //$data = $this->model->getUser();
     //$users = $this->model->getAllUsers();
     $posts = $this->model->allPosts();
+    $pages = $posts['pages'];
+    unset($posts['pages']);
     require($this->template);
   }
 }

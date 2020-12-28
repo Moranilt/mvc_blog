@@ -28,7 +28,7 @@ class Auth{
       }else{
         if(password_verify($data['password'], $user['password'])){
           $_SESSION['user_login'] = $user['login'];
-          $_SESSION['user_id'] = $user['id'];
+          $_SESSION['user_id'] = $user['user_id'];
         }else{
           echo "Password is incorrect";
         }
